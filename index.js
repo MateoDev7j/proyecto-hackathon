@@ -12,8 +12,18 @@ function cambiarColor(){
     nave.style.backgroundColor=array[Math.floor(Math.random()*(0-1)+0)];
 }
 /* LOGICA DE BARRAS CAYENDO  */
-muro=document.getElementById("contenedor-muro");
+let muro=document.getElementById("contenedor-muro");
 
-async function barrasCayendo(){
-    setInterval(()=>muro.style.top=,1000);
+function barrasCayendo(){
+    console.log(muro);
+    
+   let posMuro = muro.getBoundingClientRect();
+    let i=0;    
+   setInterval(()=>{
+   
+    i=i+5;
+        muro.style.top= (posMuro.top+i )+"px";
+        console.log((posMuro.top+i)+"px");
+    } ,100);
 }
+barrasCayendo();
